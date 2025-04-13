@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class MotorCycleController : MonoBehaviour
 {
+    [SerializeField]
+    GameObject motorcycle;
+
     public float maxSpeed = 20f;
     public float smoothTime = 0.3f; // lower is snappier, higher is more floaty
 
@@ -28,6 +31,6 @@ public class MotorCycleController : MonoBehaviour
         currentLean = Mathf.SmoothDamp(currentLean, targetLean, ref leanVelocity, leanSmoothTime);
 
         // Apply rotation around Z axis
-        transform.localRotation = Quaternion.Euler(0f, 0f, currentLean);
+        motorcycle.transform.localRotation = Quaternion.Euler(0f, 0f, currentLean);
     }
 }
